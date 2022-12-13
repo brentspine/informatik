@@ -13,12 +13,18 @@ class Game:
 
     def add_player(self, name):
         if len(name) <= 1:
-            return "Invalid name"
-        if name in self.players:
-            return "Player already exists"
+            return "Enter longer name"
+        if len(name) > 24:
+            return "Enter shorter name"
+        for c in self.players:
+            if c.name == name:
+                return "Player already exists"
         self.players.append(player_class.Player(name))
         return ""
 
     def add_cards(self, amount):
         for player in self.players:
             player.add_cards(amount)
+
+    def has_ended(self):
+        return False

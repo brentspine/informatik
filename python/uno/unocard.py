@@ -71,4 +71,4 @@ class UnoCards(Enum):
 
 
 def generate_random():
-    return random.randint(0, len([e.value for e in UnoCards.value]) - 1)
+    return list([e.value for e in UnoCards])[random.randint(0, len([e.value for e in UnoCards]) - 1)]
